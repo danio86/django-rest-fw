@@ -23,10 +23,6 @@ class Post(models.Model):
         ('walden', 'Walden'),
         ('xpro2', 'X-pro II')
     ]
-
-    # he first value is the actual string saved in the database and
-    # the second one is the value  displayed in the dropdown menu
-    # in the in -browser interface.
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -38,7 +34,6 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
-    # kein filter wird angewended außer wir ändern "normal"
 
     class Meta:
         ordering = ['-created_at']
