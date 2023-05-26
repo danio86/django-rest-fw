@@ -36,6 +36,9 @@ class ProfileList(generics.ListAPIView):
         # dann zum related name von follower-modell von diesem owner
         # dann nehmen wir den anderen related name vom erste rel-name
         # und zeigen auf dessen profile
+        'owner__followed__owner__profile',
+        # von wem wird ein user gefollowed? profile-owner wird followed
+        # von followed-owner > dessen profile
     ]
     ordering_fields = [
         'posts_count',
