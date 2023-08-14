@@ -1,7 +1,7 @@
 from django.urls import path
-from posts import views
+from properties import views
 
 urlpatterns = [
-    path('properties/', views.PostList.as_view()),
-    path('properties/<int:pk>/', views.PostDetail.as_view())
+    path('properties/', views.PropertyList.as_view()),
+    path('properties/<int:pk>/', views.PropertyDetail.as_view())
 ]
