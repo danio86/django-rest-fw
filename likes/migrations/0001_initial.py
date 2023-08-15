@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('post', models.ForeignKey(
                     on_delete=django.db.models.deletion.CASCADE, related_name='likes', to='posts.post')),
                 ('properties', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='properties', to='properties.property')),
+                 related_name='likes', to='properties.property')),
             ],
             options={
                 'ordering': ['-created_at'],
