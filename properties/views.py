@@ -59,6 +59,6 @@ class PropertyDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PropertySerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Property.objects.annotate(
-        likes_count=Count('likes', distinct=True),
+        likes_count=Count('updated_at', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
