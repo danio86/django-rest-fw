@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                     on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('post', models.ForeignKey(
                     on_delete=django.db.models.deletion.CASCADE, related_name='likes', to='posts.post')),
-                ('properties', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                ('property', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
                  related_name='likes', to='properties.property')),
             ],
             options={
