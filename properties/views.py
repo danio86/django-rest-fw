@@ -13,10 +13,10 @@ class PropertyList(generics.ListCreateAPIView):
     """
     serializer_class = PropertySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    # queryset = Property.objects.annotate(
-    #     likes_count=Count('likes', distinct=True),
-    #     comments_count=Count('comment', distinct=True)
-    # ).order_by('-created_at')
+    queryset = Property.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -59,6 +59,6 @@ class PropertyDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PropertySerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Property.objects.annotate(
-        likes_count=Count('updated_at', distinct=True),
+        likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
