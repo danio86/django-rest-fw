@@ -33,7 +33,7 @@ class PropertySerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
-                owner=user, post=obj
+                owner=user, property=obj
                 # checks if the loggedin user is likes this post
             ).first()
             # print(like, 'tesT')
